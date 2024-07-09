@@ -29,7 +29,7 @@ k_values_ranges = {
     'DQ': range(1, 11, 2),
     'Other': range(1, 11, 2)
 }
-
+```
 The total number of combinations for grid search is 11,291,011,440,000. Such an exhaustive search is infeasible.
 
 Optuna leverages Bayesian optimization, which uses a probabilistic model to predict the performance of different hyperparameter sets. This allows it to focus on the most promising regions of the search space, significantly reducing the number of evaluations needed to find the optimal parameters.
