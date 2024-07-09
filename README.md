@@ -33,3 +33,13 @@ k_values_ranges = {
 The total number of combinations for grid search is 11,291,011,440,000. Such an exhaustive search is infeasible.
 
 Optuna leverages Bayesian optimization, which uses a probabilistic model to predict the performance of different hyperparameter sets. This allows it to focus on the most promising regions of the search space, significantly reducing the number of evaluations needed to find the optimal parameters.
+## Results
+
+Best k values: {'k_unanimous': 100, 'k_kotko': 180, 'k_submission': 120, 'k_split': 25, 'k_majority': 70, 'k_doctor': 20, 'k_overturned': 27, 'k_continue': 10, 'k_dq': 3, 'k_other': 7}
+Highest Accuracy: 56.15%
+
+![image](https://github.com/datamus/elo_rating_mma/assets/174767540/b32656c4-8799-4cd2-9fa5-61f5b8ad9770)
+
+![image](https://github.com/datamus/elo_rating_mma/assets/174767540/b285dbc4-6d65-4329-85d1-7d7d239809e5)
+
+
