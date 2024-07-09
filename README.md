@@ -16,27 +16,27 @@ In the ELO rating system, the `k` value (or K-factor) determines how much a play
 
 Using grid search for hyperparameter tuning can be extremely resource-intensive. For example, with the given ranges for `k` values:
 
-```python
-k_values_ranges = {
-    'Decision - Unanimous': range(10, 200, 5),
-    'KO/TKO': range(10, 200, 5),
-    'Submission': range(10, 200, 5),
-    'Decision - Split': range(10, 200, 5),
-    'Decision - Majority': range(10, 200, 5),
-    'TKO - Doctor\'s Stoppage': range(10, 200, 5),
-    'Overturned': range(1, 31, 2),
-    'Could Not Continue': range(10, 60, 5),
-    'DQ': range(1, 11, 2),
-    'Other': range(1, 11, 2)
-}
-```
+| Method                | Best k Value |
+|-----------------------|--------------|
+| Decision - Unanimous  | 100          |
+| KO/TKO                | 180          |
+| Submission            | 120          |
+| Decision - Split      | 25           |
+| Decision - Majority   | 70           |
+| TKO - Doctor's Stoppage | 20        |
+| Overturned            | 27           |
+| Could Not Continue    | 10           |
+| DQ                    | 3            |
+| Other                 | 7            |
+
+**Highest Accuracy**: 56.15%
+
 The total number of combinations for grid search is 11,291,011,440,000. Such an exhaustive search is infeasible.
 
 Optuna leverages Bayesian optimization, which uses a probabilistic model to predict the performance of different hyperparameter sets. This allows it to focus on the most promising regions of the search space, significantly reducing the number of evaluations needed to find the optimal parameters.
 ## Results
 
-Best k values: {'k_unanimous': 100, 'k_kotko': 180, 'k_submission': 120, 'k_split': 25, 'k_majority': 70, 'k_doctor': 20, 'k_overturned': 27, 'k_continue': 10, 'k_dq': 3, 'k_other': 7}
-Highest Accuracy: 56.15%
+
 
 ![image](https://github.com/datamus/elo_rating_mma/assets/174767540/b32656c4-8799-4cd2-9fa5-61f5b8ad9770)
 
