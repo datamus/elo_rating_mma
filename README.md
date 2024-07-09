@@ -16,6 +16,26 @@ In the ELO rating system, the `k` value (or K-factor) determines how much a play
 
 Using grid search for hyperparameter tuning can be extremely resource-intensive. For example, with the given ranges for `k` values:
 
+```python
+k_values_ranges = {
+    'Decision - Unanimous': range(10, 200, 5),
+    'KO/TKO': range(10, 200, 5),
+    'Submission': range(10, 200, 5),
+    'Decision - Split': range(10, 200, 5),
+    'Decision - Majority': range(10, 200, 5),
+    'TKO - Doctor\'s Stoppage': range(10, 200, 5),
+    'Overturned': range(1, 31, 2),
+    'Could Not Continue': range(10, 60, 5),
+    'DQ': range(1, 11, 2),
+    'Other': range(1, 11, 2)
+}
+
+```
+The total number of combinations for grid search is 11,291,011,440,000. Such an exhaustive search is infeasible.
+
+Optuna leverages Bayesian optimization, which uses a probabilistic model to predict the performance of different hyperparameter sets. This allows it to focus on the most promising regions of the search space, significantly reducing the number of evaluations needed to find the optimal parameters.
+
+## Results
 | Method                | Best k Value |
 |-----------------------|--------------|
 | Decision - Unanimous  | 100          |
@@ -30,11 +50,6 @@ Using grid search for hyperparameter tuning can be extremely resource-intensive.
 | Other                 | 7            |
 
 **Highest Accuracy**: 56.15%
-
-The total number of combinations for grid search is 11,291,011,440,000. Such an exhaustive search is infeasible.
-
-Optuna leverages Bayesian optimization, which uses a probabilistic model to predict the performance of different hyperparameter sets. This allows it to focus on the most promising regions of the search space, significantly reducing the number of evaluations needed to find the optimal parameters.
-## Results
 
 
 
